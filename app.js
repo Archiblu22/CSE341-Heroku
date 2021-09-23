@@ -1,3 +1,4 @@
+const PORT = process.env.PORT || 5000; // So we can run on heroku || (OR) localhost:5000
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -27,4 +28,4 @@ app.post('/add-user', (req, res, next) => {
     res.redirect('/users');
 });
 
-app.listen(3000);
+app.listen(PORT);
