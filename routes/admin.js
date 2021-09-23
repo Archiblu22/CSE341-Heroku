@@ -26,5 +26,11 @@ router.post('/add-product', (req, res, next) => {
     res.redirect('/');
 });
 
+// /admin/remove-product => POST
+router.post('/remove-product', (req, res, next) => {
+    products = products.filter(product => product !== {title: req.body.title});
+    res.redirect('/');
+});
+
 exports.routes = router;
 exports.products = products;
