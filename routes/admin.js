@@ -4,6 +4,8 @@ const express = require('express');
 
 const rootDir = require('../util/path');
 const { title } = require('process');
+const { price } = require('process');
+const { description } = require('process');
 
 const router = express.Router();
 
@@ -22,7 +24,7 @@ router.get('/add-product', (req, res, next) => {
 
 // /admin/add-product => POST
 router.post('/add-product', (req, res, next) => {
-    products.push({title: req.body.title});
+    products.push({title: req.body.title, price: req.body.price, description: req.body.description});
     res.redirect('/');
 });
 
@@ -39,7 +41,7 @@ router.get('/remove-product', (req, res, next) => {
 
 // /admin/remove-product => POST
 router.post('/remove-product', (req, res, next) => {
-    products = products.filter(product => product !== {title: req.body.title});
+    products = products.filter(prods => prods !== req.body.products);
     res.redirect('/');
 });
 
