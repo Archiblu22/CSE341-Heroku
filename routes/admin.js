@@ -26,6 +26,17 @@ router.post('/add-product', (req, res, next) => {
     res.redirect('/');
 });
 
+// /admin/remove-product => GET
+router.get('/remove-product', (req, res, next) => {
+    res.render('remove-product', {
+      pageTitle: 'Remove Product',
+      path: '/admin/remove-product',
+      formsCSS: true,
+      productCSS: true,
+      activeRemoveProduct: true
+    });
+});
+
 // /admin/remove-product => POST
 router.post('/remove-product', (req, res, next) => {
     products = products.filter(product => product !== {title: req.body.title});
