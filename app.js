@@ -20,8 +20,20 @@ const shopRoutes = require('./routes/shop');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use((req, res, next) => {
+    User.findById('615b69820448855359bf8739')
+      .populate('cart.items.productId')
+      .then(user => {
+        console.log(user);
+        req.user = user;
+        next();
+      })
+      .catch(err => console.log(err));
+});
+
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
+app.use(errorController.get404);
 
 const corsOptions = {
     origin: "https://cse341ecomm.herokuapp.com/",
@@ -38,8 +50,6 @@ const options = {
 };
 
 const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://paguirre:8199275Aa@cluster0.gfhn1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-
-app.use(errorController.get404);
 
 mongoose
   .connect(
