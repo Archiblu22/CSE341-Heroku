@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors(corsOptions));
 
 app.use((req, res, next) => {
-    User.findOne('615e48c71dc79e0d6df09003')
+    User.findById('615e4f08f3148414eeff30ea')
       .populate('cart.items.productId')
       .then(user => {
         console.log(user);
