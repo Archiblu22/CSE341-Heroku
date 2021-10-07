@@ -29,7 +29,6 @@ app.use(cors(corsOptions));
 
 app.use((req, res, next) => {
     User.findById('615e4f08f3148414eeff30ea')
-      .populate('cart.items.productId')
       .then(user => {
         console.log(user);
         req.user = user;
