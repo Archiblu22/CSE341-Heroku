@@ -211,7 +211,6 @@ exports.postReset = (req, res, next) => {
           to: req.body.email,
           from: 'shop@node-complete.com',
           subject: 'Password reset',
-          // CHECK IF THIS WORKS IN HEROKU!!
           html: `
             <p>You requested a password reset</p>
             <p>Click this <a href="http://localhost:3000/reset/${token}">link</a> to set a new password.</p>

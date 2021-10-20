@@ -23,13 +23,12 @@ const store = new MongoDBStore({
 });
 const csrfProtection = csrf();
 
-
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
-const authRoutes = require('./routes/auth');
 const shopRoutes = require('./routes/shop');
+const authRoutes = require('./routes/auth');
 
 const corsOptions = {
     origin: "https://cse341ecomm.herokuapp.com/",
@@ -38,7 +37,6 @@ const corsOptions = {
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors(corsOptions));
 app.use(
   session({
     secret: 'my secret',
@@ -47,7 +45,6 @@ app.use(
     store: store
   })
 );
-
 app.use(csrfProtection);
 app.use(flash());
 
