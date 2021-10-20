@@ -47,6 +47,7 @@ exports.getSignup = (req, res, next) => {
     pageTitle: 'Signup',
     errorMessage: message,
     oldInput: {
+      name: '',
       email: '',
       password: '',
       confirmPassword: ''
@@ -133,6 +134,7 @@ exports.postSignup = (req, res, next) => {
       pageTitle: 'Signup',
       errorMessage: errors.array()[0].msg,
       oldInput: {
+        name: name,
         email: email,
         password: password,
         confirmPassword: req.body.confirmPassword

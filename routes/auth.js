@@ -35,7 +35,7 @@ router.post(
     [
         body(
             'name',
-            'Please enter your full name.'
+            'Please enter your full name with no numbers or special characters.'
         )
         .isLength({
             min: 4
