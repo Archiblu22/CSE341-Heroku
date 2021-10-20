@@ -47,7 +47,6 @@ exports.getSignup = (req, res, next) => {
     pageTitle: 'Signup',
     errorMessage: message,
     oldInput: {
-      name: '',
       email: '',
       password: '',
       confirmPassword: ''
