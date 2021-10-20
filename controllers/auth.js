@@ -47,7 +47,6 @@ exports.getSignup = (req, res, next) => {
     pageTitle: 'Signup',
     errorMessage: message,
     oldInput: {
-      // name: '',
       email: '',
       password: '',
       confirmPassword: ''
@@ -123,7 +122,6 @@ exports.postLogin = (req, res, next) => {
 };
 
 exports.postSignup = (req, res, next) => {
-  // const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
 
@@ -135,7 +133,6 @@ exports.postSignup = (req, res, next) => {
       pageTitle: 'Signup',
       errorMessage: errors.array()[0].msg,
       oldInput: {
-        // name: name,
         email: email,
         password: password,
         confirmPassword: req.body.confirmPassword
@@ -212,9 +209,9 @@ exports.postReset = (req, res, next) => {
         res.redirect('/');
         transporter.sendMail({
           to: req.body.email,
-          from: 'paguirre@byui.edu',
+          from: 'shop@node-complete.com',
           subject: 'Password reset',
-          // Not sure if this link will work in Heroku - CHECK!!
+          // CHECK IF THIS WORKS IN HEROKU!!
           html: `
             <p>You requested a password reset</p>
             <p>Click this <a href="http://localhost:3000/reset/${token}">link</a> to set a new password.</p>
