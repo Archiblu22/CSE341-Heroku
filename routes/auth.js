@@ -33,15 +33,15 @@ router.post(
 router.post(
     '/signup',
     [
-        body(
-            'name',
-            'Please enter your full name with no numbers or special characters.'
-        )
-        .isLength({
-            min: 4
-        })
-        .isAlpha()
-        .trim(),
+        // body(
+        //     'name',
+        //     'Please enter your full name with no numbers or special characters.'
+        // )
+        // .isLength({
+        //     min: 4
+        // })
+        // .isAlpha()
+        // .trim(),
         check('email')
         .isEmail()
         .withMessage('Please enter a valid email.')
