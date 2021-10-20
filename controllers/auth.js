@@ -148,6 +148,7 @@ exports.postSignup = (req, res, next) => {
     .hash(password, 12)
     .then(hashedPassword => {
       const user = new User({
+        name: name,
         email: email,
         password: hashedPassword,
         cart: { items: [] }
@@ -212,7 +213,7 @@ exports.postReset = (req, res, next) => {
         res.redirect('/');
         transporter.sendMail({
           to: req.body.email,
-          from: 'shop@node-complete.com',
+          from: 'paguirre@byui.edu',
           subject: 'Password reset',
           // Not sure if this link will work in Heroku - CHECK!!
           html: `
