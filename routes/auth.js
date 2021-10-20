@@ -28,14 +28,17 @@ router.post(
 router.post(
   '/signup',
   [
+    body(
+      'name',
+      'Please enter your name without numbers or special characters.'
+    )
+      .isLength({ min: 2 })
+      .isAlpha()
+      .trim(),
     check('email')
       .isEmail()
       .withMessage('Please enter a valid email.')
       .custom((value, { req }) => {
-        // if (value === 'test@test.com') {
-        //   throw new Error('This email address if forbidden.');
-        // }
-        // return true;
         return User.findOne({ email: value }).then(userDoc => {
           if (userDoc) {
             return Promise.reject(
