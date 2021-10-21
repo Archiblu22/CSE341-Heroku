@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const PORT = process.env.PORT || 3000; // So we can run on heroku || (OR) localhost:3000
 const path = require('path');
 const cors = require('cors')
@@ -14,7 +17,7 @@ const errorController = require('./controllers/error');
 const User = require('./models/user');
 
 
-const MONGODB_URI = "mongodb+srv://paguirre:8199275Aa@cluster0.gfhn1.mongodb.net/myFirstDatabase";
+const MONGODB_URI = process.env.MONGODB_URL
 
 const app = express();
 const store = new MongoDBStore({

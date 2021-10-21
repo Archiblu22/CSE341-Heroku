@@ -11,7 +11,7 @@ const User = require('../models/user');
 const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {
-      api_key: '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'
+      api_key: process.env.API_KEY
     }
   })
 );
@@ -156,12 +156,12 @@ exports.postSignup = (req, res, next) => {
     })
     .then(result => {
       res.redirect('/login');
-      // return transporter.sendMail({
-      //   to: email,
-      //   from: 'shop@node-complete.com',
-      //   subject: 'Signup succeeded!',
-      //   html: '<h1>You successfully signed up!</h1>'
-      // });
+      return transporter.sendMail({
+        to: email,
+        from: 'paguirre@byui.edu',
+        subject: 'Signup succeeded!',
+        html: '<h1>You successfully signed up!</h1>'
+      });
     })
     .catch(err => {
       const error = new Error(err);
@@ -210,13 +210,19 @@ exports.postReset = (req, res, next) => {
       })
       .then(result => {
         res.redirect('/');
+        let host;
+        if (process.env.NODE_ENV === 'production') {
+          host = "https://cse341ecomm.herokuapp.com"
+        } else {
+          host = "http://localhost:3000"
+        }
         transporter.sendMail({
           to: req.body.email,
           from: 'shop@node-complete.com',
           subject: 'Password reset',
           html: `
             <p>You requested a password reset</p>
-            <p>Click this <a href="http://localhost:3000/reset/${token}">link</a> to set a new password.</p>
+            <p>Click this <a href="${host}/reset/${token}">link</a> to set a new password.</p>
           `
         });
       })

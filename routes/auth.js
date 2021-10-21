@@ -32,7 +32,9 @@ router.post(
       'name',
       'Please enter your name without numbers or special characters.'
     )
-      .isLength({ min: 2 }),
+      .isLength({ min: 2 })
+      .trim()
+      .isAlpha('en-US', {ignore: ' '}),
     check('email')
       .isEmail()
       .withMessage('Please enter a valid email.')
