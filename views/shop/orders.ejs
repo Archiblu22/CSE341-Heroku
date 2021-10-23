@@ -4,9 +4,12 @@
 
     <body>
         <%- include('../includes/navigation.ejs') %>
-        <main>
+        <main class="orders">
             <% if (orders.length <= 0) { %>
-                <h1>Nothing there!</h1>
+                <div class="centered">
+                    <h1>No Orders Yet!</h1>
+                    <p><b>Make sure to checkout your <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>!</b></p>
+                </div>
             <% } else { %>
                 <ul class="orders">
                     <% orders.forEach(order => { %>

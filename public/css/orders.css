@@ -17,13 +17,17 @@
 
 .orders__products {
     list-style: none;
-    margin: 0;
+    width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0;
 }
 
 .orders__products-item {
     margin: 0.5rem 0;
     padding: 0.5rem;
-    border: 1px solid #00695c;
-    color: #00695c;
+    color: white;
+    border: 1px solid #40d3bb;
+    background: #40d3bb;
+    text-align: center;
 }

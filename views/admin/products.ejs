@@ -7,6 +7,7 @@
 
             <main>
                 <% if (prods.length > 0) { %>
+                    <h1>Your Added Products</h1>
                     <div class="grid">
                         <% for (let product of prods) { %>
                             <article class="card product-item">
@@ -19,8 +20,7 @@
                                     <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
                                 </div>
                                 <div class="card__content">
-                                    <h2 class="product__price">$
-                                        <%= product.price %>
+                                    <h2 class="product__price">$<%= product.price %>
                                     </h2>
                                     <p class="product__description">
                                         <%= product.description %>
@@ -39,7 +39,10 @@
                             <% } %>
                     </div>
                     <% } else { %>
-                        <h1>No Products Found!</h1>
+                        <div class="centered">
+                            <h1>No Products Found...</h1>
+                            <p><b><a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add</a> some products to our store!</b></p>
+                        </div>
                         <% } %>
             </main>
             <%- include('../includes/end.ejs') %>

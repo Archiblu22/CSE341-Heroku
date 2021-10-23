@@ -23,3 +23,8 @@
   margin: 0;
 }
 
+.cart a:link,
+.cart a:visited {
+    color: #40d3bb;
+    text-decoration: none;
+}

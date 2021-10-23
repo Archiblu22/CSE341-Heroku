@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   padding: 0;
   margin: 0;
@@ -15,6 +16,16 @@ main {
   margin: auto;
 }
 
+main h1,
+main h2{
+  text-align: center;
+  text-transform: uppercase;
+}
+
+main p {
+  text-align: center;
+}
+
 form {
   display: inline;
 }
@@ -24,7 +35,7 @@ form {
 }
 
 .image {
-  height: 20rem;
+  height: 22rem;
 }
 
 .image img {
@@ -34,7 +45,7 @@ form {
 .main-header {
   width: 100%;
   height: 3.5rem;
-  background-color: #00695c;
+  background-color: steelblue;
   padding: 0 1.5rem;
   display: flex;
   align-items: center;
@@ -75,7 +86,8 @@ form {
 .main-header__item a.active,
 .main-header__item button:hover,
 .main-header__item button:active {
-  color: #ffeb3b;
+  color: #fcd300;
+  border-bottom: 1px solid #fcd300;
 }
 
 .mobile-nav {
@@ -126,7 +138,7 @@ form {
 .mobile-nav__item a.active,
 .mobile-nav__item button:hover,
 .mobile-nav__item button:active {
-  background: #00695c;
+  background: #40d3bb;
   color: white;
   border-radius: 3px;
 }
@@ -147,8 +159,8 @@ form {
 
 #side-menu-toggle:active,
 #side-menu-toggle:hover {
-  color: #ffeb3b;
-  border-color: #ffeb3b;
+  color: #fcd300;
+  border-color: #fcd300;
 }
 
 .backdrop {
@@ -165,7 +177,7 @@ form {
 .grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: stretch;
 }
 
@@ -173,14 +185,27 @@ form {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
+.card a:link {
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
 .card__header,
 .card__content {
   padding: 1rem;
+  background: steelblue;
+}
+
+.card__content h2 {
+  font-size: 1.6rem;
+  margin: 0 0 .8rem 0;
 }
 
 .card__header h1,
 .card__content h1,
-.card__content h2,
 .card__content p {
   margin: 0;
 }
@@ -208,8 +233,8 @@ form {
   padding: 0.25rem 1rem;
   text-decoration: none;
   font: inherit;
-  border: 1px solid #00695c;
-  color: #00695c;
+  border: 1px solid steelblue;
+  color: steelblue;
   background: white;
   border-radius: 3px;
   cursor: pointer;
@@ -217,7 +242,8 @@ form {
 
 .btn:hover,
 .btn:active {
-  background-color: #00695c;
+  border: 1px solid #40d3bb;
+  background-color: #40d3bb;
   color: white;
 }
 
@@ -234,6 +260,7 @@ form {
 
 .user-message {
   margin: auto;
+  margin-bottom: 1rem;
   width: 90%;
   border: 1px solid #4771fa;
   padding: 0.5rem;
@@ -248,6 +275,24 @@ form {
   color: red;
 }
 
+.detail-view h2 {
+  font-size: 1.9rem;
+}
+
+.detail-view p {
+  color:white;
+  background-color: steelblue;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.orders a:link,
+.orders a:visited {
+    color: #40d3bb;
+    text-decoration: none;
+}
+
+
 @media (min-width: 768px) {
   .main-header__nav {
     display: flex;
@@ -261,3 +306,4 @@ form {
     width: 30rem;
   }
 }
+
